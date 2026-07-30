@@ -13,7 +13,7 @@ img { width:150px; height:150px; }
 
 <div class="container">
     <div class="card">
-        <img src="https://via.placeholder.com/150"/>
+        <img src="images/iphone.jpg"/>
         <h3>iPhone</h3>
         <p>₹70,000</p>
     </div>
