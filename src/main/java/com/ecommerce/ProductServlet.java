@@ -8,7 +8,7 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
-        res.setContentType("text/html");
+        res.setContentType("text/html; charset=UTF-8");
         PrintWriter out = res.getWriter();
 
         out.println("<html>");
