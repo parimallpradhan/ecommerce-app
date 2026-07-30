@@ -27,7 +27,7 @@ public class ProductServlet extends HttpServlet {
 
         // Product 1
         out.println("<div class='card'>");
-        out.println("<img src='https://via.placeholder.com/150'/>");
+        out.println("<img src='images/iphone.jpg'/>");
         out.println("<h3>iPhone</h3>");
         out.println("<p>₹70,000</p>");
         out.println("</div>");
