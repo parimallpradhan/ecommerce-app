@@ -1,29 +1,23 @@
 package com.ecommerce;
 
-import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
+import java.io.*;
 
+@WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse res)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
 
-        res.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = res.getWriter();
+        HttpSession session = request.getSession();
+        session.removeAttribute("cart");
 
-        out.println("<html><head><title>Payment</title></head><body>");
-        out.println("<h1>💳 Payment Page</h1>");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-        out.println("<form action='payment-success' method='post'>");
-
-        out.println("Name: <input type='text' name='name'><br><br>");
-        out.println("Card Number: <input type='text'><br><br>");
-        out.println("Amount: ₹100000<br><br>");
-
-        out.println("<button type='submit'>Pay Now</button>");
-        out.println("</form>");
-
-        out.println("</body></html>");
+        out.println("<h1>✅ Payment Successful!</h1>");
+        out.println("<a href='products'>Continue Shopping</a>");
     }
 }

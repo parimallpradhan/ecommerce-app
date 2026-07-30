@@ -1,4 +1,7 @@
-com/ecommerce/ProductServlet.class
+com/ecommerce/Product.class
 com/ecommerce/CheckoutServlet.class
+com/ecommerce/RemoveFromCartServlet.class
+com/ecommerce/ProductServlet.class
 com/ecommerce/CartServlet.class
 com/ecommerce/PaymentSuccessServlet.class
+com/ecommerce/AddToCartServlet.class

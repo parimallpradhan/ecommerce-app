@@ -1,46 +1,38 @@
 package com.ecommerce;
 
-import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
+import java.io.*;
+import java.util.*;
 
+@WebServlet("/products")
 public class ProductServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest req, HttpServletResponse res)
-            throws ServletException, IOException {
 
-        res.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = res.getWriter();
+    List<Product> products = new ArrayList<>();
 
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<style>");
-        out.println("body { font-family: Arial; background:#f4f4f4; }");
-        out.println(".container { display:flex; gap:20px; padding:20px; }");
-        out.println(".card { background:white; padding:15px; border-radius:10px; box-shadow:0 0 10px gray; width:200px; text-align:center; }");
-        out.println("img { width:150px; height:150px; }");
-        out.println("</style>");
-        out.println("</head>");
+    @Override
+    public void init() {
+        products.add(new Product(1, "iPhone", 80000));
+        products.add(new Product(2, "Laptop", 60000));
+    }
 
-        out.println("<body>");
-        out.println("<h1 style='text-align:center;'>🛒 Product List</h1>");
-        out.println("<div class='container'>");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
 
-        // Product 1
-        out.println("<div class='card'>");
-        out.println("<img src='images/iphone.jpg'/>");
-        out.println("<h3>iPhone</h3>");
-        out.println("<p>₹70,000</p>");
-        out.println("</div>");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-        // Product 2
-        out.println("<div class='card'>");
-        out.println("<img src='https://via.placeholder.com/150'/>");
-        out.println("<h3>Laptop</h3>");
-        out.println("<p>₹50,000</p>");
-        out.println("</div>");
+        out.println("<h1>Products</h1>");
 
-        out.println("</div>");
-        out.println("</body>");
-        out.println("</html>");
+        for (Product p : products) {
+            out.println("<div>");
+            out.println("<h3>" + p.getName() + "</h3>");
+            out.println("<p>Price: ₹" + p.getPrice() + "</p>");
+            out.println("<a href='add-to-cart?id=" + p.getId() + "'>Add to Cart</a>");
+            out.println("</div><hr>");
+        }
+
+        out.println("<a href='cart'>View Cart</a>");
     }
 }
