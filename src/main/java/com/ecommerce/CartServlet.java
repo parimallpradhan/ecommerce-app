@@ -1,33 +1,35 @@
 package com.ecommerce;
 
-import java.io.*;
-import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
+import java.io.*;
+import java.util.*;
 
+@WebServlet("/cart")
 public class CartServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        res.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = res.getWriter();
+        HttpSession session = request.getSession();
+        List<String> cart = (List<String>) session.getAttribute("cart");
 
-        HttpSession session = req.getSession();
-        ArrayList<String> cart = (ArrayList<String>) session.getAttribute("cart");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-        out.println("<h1>🛒 Your Cart</h1>");
+        out.println("<html><body>");
+        out.println("<h1>Your Cart</h1>");
 
         if (cart == null || cart.isEmpty()) {
             out.println("<p>Cart is empty</p>");
         } else {
-            out.println("<ul>");
             for (String item : cart) {
-                out.println("<li>" + item + "</li>");
+                out.println("<p>" + item + "</p>");
             }
-            out.println("</ul>");
         }
 
-        out.println("<a href='products'>⬅ Back to Products</a>");
+        out.println("<br><a href='products'>Back to Products</a>");
+        out.println("</body></html>");
     }
 }
