@@ -31,5 +31,6 @@ public class CartServlet extends HttpServlet {
 
         out.println("<br><a href='products'>Back to Products</a>");
         out.println("</body></html>");
+        out.println("<h1 style='color:green;'>🛒 Your Cart</h1>");
     }
 }
