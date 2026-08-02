@@ -29,11 +29,13 @@ out.println("<link rel='stylesheet' href='style.css'>");
 out.println("</head><body>");
 
 /* NAVBAR */
+
 out.println("<div class='navbar'>");
 out.println("<h2>🛒 My Store</h2>");
 out.println("<div>");
 out.println("<a href='products'>Products</a>");
 out.println("<a href='cart'>Cart</a>");
+out.println("<a href='cart'>Cart (" + count + ")</a>");
 out.println("</div>");
 out.println("</div>");
 
