@@ -29,8 +29,8 @@ pipeline {
             steps {
                 sshagent(['tomcat-ssh-key']) {
                     sh """
-                    scp target/${APP_NAME}.war ubuntu@${TOMCAT_IP}:/home/ubuntu/apache-tomcat-9.0.120/webapps/
-
+                    //scp target/${APP_NAME}.war ubuntu@${TOMCAT_IP}:/home/ubuntu/apache-tomcat-9.0.120/webapps/
+           scp -o StrictHostKeyChecking=no target/${APP_NAME}.war ubuntu@${TOMCAT_IP}:/home/ubuntu/apache-tomcat-9.0.120/webapps/
                     ssh ubuntu@${TOMCAT_IP} '
                     cd /home/ubuntu/apache-tomcat-9.0.120/bin &&
                     ./shutdown.sh || true &&
