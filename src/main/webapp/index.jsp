@@ -33,9 +33,15 @@
 
 </div>
 
-<h2 style="text-align:center; margin-top:30px;">Shop by Category</h2>
+<div class="container">
 
-<div class="categories">
+    <h2 class="section-title">Shop by Category</h2>
+
+    <div class="categories">
+        ...
+    </div>
+
+</div>
 <!-- CATEGORIES -->
 <div class="categories">
 
