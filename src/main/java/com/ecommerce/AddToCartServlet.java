@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
-@WebServlet("/add-to-cart")   // ✅ MUST BE EXACT
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/add-to-cart")
 public class AddToCartServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse res)
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
         String product = req.getParameter("product");
