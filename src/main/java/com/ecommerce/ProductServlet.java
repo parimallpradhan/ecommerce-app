@@ -18,21 +18,39 @@ public class ProductServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+        throws IOException {
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
 
-        out.println("<h1>Products</h1>");
+    out.println("<html><head>");
+    out.println("<link rel='stylesheet' href='style.css'>");
+    out.println("</head><body>");
 
-        for (Product p : products) {
-            out.println("<div>");
-            out.println("<h3>" + p.getName() + "</h3>");
-            out.println("<p>Price: ₹" + p.getPrice() + "</p>");
-            out.println("<a href='add-to-cart?id=" + p.getId() + "'>Add to Cart</a>");
-            out.println("</div><hr>");
-        }
+    out.println("<div class='header'><h1>🛒 My Store</h1></div>");
+    out.println("<div class='container'>");
 
-        out.println("<a href='cart'>View Cart</a>");
+    for (Product p : products) {
+
+        String image = "";
+        if (p.getId() == 1)
+            image = "https://via.placeholder.com/250x180?text=iPhone";
+        else if (p.getId() == 2)
+            image = "https://via.placeholder.com/250x180?text=Laptop";
+
+        out.println("<div class='card'>");
+        out.println("<img src='" + image + "'>");
+        out.println("<h3>" + p.getName() + "</h3>");
+        out.println("<p class='price'>₹" + p.getPrice() + "</p>");
+        out.println("<a class='btn' href='add-to-cart?id=" + p.getId() + "'>Add to Cart</a>");
+        out.println("</div>");
     }
+
+    out.println("</div>");
+    out.println("<div style='text-align:center;'>");
+    out.println("<a class='btn' href='cart'>Go to Cart</a>");
+    out.println("</div>");
+
+    out.println("</body></html>");
+}
 }
