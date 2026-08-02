@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        TOMCAT_IP = "43.204.114.68"
+        TOMCAT_IP = "3.7.71.43"
         APP_NAME = "ecommerce-app"
     }
 
