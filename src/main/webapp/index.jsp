@@ -19,9 +19,18 @@
 
 <!-- HERO SECTION -->
 <div class="hero">
-    <h1>Big Sale is Live 🔥</h1>
-    <p>Up to 50% OFF on Electronics</p>
-    <a class="btn" href="products">Shop Now</a>
+    
+    <div class="hero-left">
+        <img src="https://m.media-amazon.com/images/I/61bK6PMOC3L._SL1500_.jpg" alt="phone">
+    </div>
+
+    <div class="hero-right">
+        <h1>iPhone Sale 🔥</h1>
+        <p>Get the latest iPhone at the best price</p>
+        <h2>₹79,999</h2>
+        <a class="btn" href="products">Shop Now</a>
+    </div>
+
 </div>
 
 <!-- CATEGORIES -->
