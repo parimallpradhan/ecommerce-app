@@ -25,33 +25,38 @@ public class ProductServlet extends HttpServlet {
     PrintWriter out = response.getWriter();
 
     out.println("<html><head>");
-    out.println("<link rel='stylesheet' href='style.css'>");
-    out.println("</head><body>");
+out.println("<link rel='stylesheet' href='style.css'>");
+out.println("</head><body>");
 
-    out.println("<div class='header'><h1>🛒 My Store</h1></div>");
-    out.println("<div class='container'>");
+/* NAVBAR */
+out.println("<div class='navbar'>");
+out.println("<h2>🛒 My Store</h2>");
+out.println("<div>");
+out.println("<a href='products'>Products</a>");
+out.println("<a href='cart'>Cart</a>");
+out.println("</div>");
+out.println("</div>");
 
-    for (Product p : products) {
+/* PRODUCTS */
+out.println("<div class='container'>");
 
-        String image = "";
-        if (p.getId() == 1)
-            image = "https://via.placeholder.com/250x180?text=iPhone";
-        else if (p.getId() == 2)
-            image = "https://via.placeholder.com/250x180?text=Laptop";
+for (Product p : products) {
 
-        out.println("<div class='card'>");
-        out.println("<img src='" + image + "'>");
-        out.println("<h3>" + p.getName() + "</h3>");
-        out.println("<p class='price'>₹" + p.getPrice() + "</p>");
-        out.println("<a class='btn' href='add-to-cart?id=" + p.getId() + "'>Add to Cart</a>");
-        out.println("</div>");
-    }
+    String image = "";
+    if (p.getId() == 1)
+        image = "https://m.media-amazon.com/images/I/61bK6PMOC3L._SX679_.jpg";
+    else if (p.getId() == 2)
+        image = "https://m.media-amazon.com/images/I/71vFKBpKakL._SX679_.jpg";
 
+    out.println("<div class='card'>");
+    out.println("<img src='" + image + "'>");
+    out.println("<h3>" + p.getName() + "</h3>");
+    out.println("<p class='price'>₹" + p.getPrice() + "</p>");
+    out.println("<a class='btn' href='add-to-cart?id=" + p.getId() + "'>Add to Cart</a>");
     out.println("</div>");
-    out.println("<div style='text-align:center;'>");
-    out.println("<a class='btn' href='cart'>Go to Cart</a>");
-    out.println("</div>");
+}
 
-    out.println("</body></html>");
+out.println("</div>");
+out.println("</body></html>");
 }
 }
