@@ -1,40 +1,29 @@
 package com.ecommerce;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.*;
-import java.util.*;
 
-@WebServlet("/add-to-cart")
 public class AddToCartServlet extends HttpServlet {
 
-    List<Product> products = List.of(
-        new Product(1, "iPhone", 80000),
-        new Product(2, "Laptop", 60000)
-    );
+    protected void doPost(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+        String product = req.getParameter("product");
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        HttpSession session = req.getSession();
 
-        HttpSession session = request.getSession();
-        List<Product> cart = (List<Product>) session.getAttribute("cart");
+        ArrayList<String> cart = (ArrayList<String>) session.getAttribute("cart");
 
         if (cart == null) {
             cart = new ArrayList<>();
         }
 
-        for (Product p : products) {
-            if (p.getId() == id) {
-                cart.add(p);
-                break;
-            }
-        }
+        cart.add(product);
 
         session.setAttribute("cart", cart);
 
-        response.sendRedirect("cart");
+        res.sendRedirect("cart");
     }
 }
