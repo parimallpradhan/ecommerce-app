@@ -10,9 +10,9 @@ import javax.servlet.annotation.WebServlet;
 public class AddToCartServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
-            throws ServletException, IOException {
+            throws IOException {
 
-        String product = req.getParameter("product");
+        String id = req.getParameter("id");
 
         HttpSession session = req.getSession();
 
@@ -22,7 +22,7 @@ public class AddToCartServlet extends HttpServlet {
             cart = new ArrayList<>();
         }
 
-        cart.add(product);
+        cart.add(id);
 
         session.setAttribute("cart", cart);
 
