@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
-
+@WebServlet("/add-to-cart")   // ✅ MUST BE EXACT
 public class AddToCartServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
