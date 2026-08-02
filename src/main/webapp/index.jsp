@@ -1,15 +1,18 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>E-Commerce</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body style="text-align:center; font-family:Arial;">
+<body>
 
-<h1>🛒 Welcome to My Store</h1>
+<div class="header">
+    <h1>🛒 Welcome to My Store</h1>
+</div>
 
-<a href="products">View Products</a>
+<div style="text-align:center; margin-top:50px;">
+    <a class="btn" href="products">Shop Now</a>
+</div>
 
 </body>
 </html>
