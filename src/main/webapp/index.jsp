@@ -33,8 +33,12 @@
 
 </div>
 
+<h2 style="text-align:center; margin-top:30px;">Shop by Category</h2>
+
+<div class="categories">
 <!-- CATEGORIES -->
 <div class="categories">
+
     <div class="cat-card">
         <img src="https://cdn-icons-png.flaticon.com/512/15/15874.png">
         <h3>Mobiles</h3>
