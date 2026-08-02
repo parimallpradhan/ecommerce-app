@@ -43,6 +43,26 @@
     </div>
 
 </div>
+<div class="container">
+    <h2 class="section-title">Our Products</h2>
+
+    <div class="product-grid">
+
+        <div class="product-card">
+            <img src="images/iphone.png" alt="iPhone">
+            <h3>iPhone</h3>
+            <p class="price">$999</p>
+
+            <form action="add-to-cart" method="post">
+                <input type="hidden" name="product" value="iPhone">
+                <button>Add to Cart</button>
+            </form>
+        </div>
+
+        <!-- Add more products same way -->
+
+    </div>
+</div>
 
 </body>
 </html>
