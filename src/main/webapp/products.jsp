@@ -63,7 +63,7 @@ button {
 <div class="container">
 
     <div class="card">
-        <img src="images/iphone.jpg">
+        <img src="https://m.media-amazon.com/images/I/iphone.jpg">
         <h3>iPhone</h3>
         <p class="price">₹70,000</p>
         <button>Add to Cart</button>
