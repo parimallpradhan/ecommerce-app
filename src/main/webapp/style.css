@@ -87,7 +87,12 @@ body {
 
 /* CATEGORIES */
 .categories {
-    margin-top: 30px;   /* 🔥 spacing from hero */
+    display: flex;
+    justify-content: center;   /* center horizontally */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;                 /* spacing between cards */
+    margin-top: 30px;
 }
 
 .cat-card {
