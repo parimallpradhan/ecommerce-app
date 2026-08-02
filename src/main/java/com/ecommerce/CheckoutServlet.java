@@ -19,5 +19,6 @@ public class CheckoutServlet extends HttpServlet {
 
         out.println("<h1>✅ Payment Successful!</h1>");
         out.println("<a href='products'>Continue Shopping</a>");
+        out.println("<br><a href='checkout'>Proceed to Payment 💳</a>");
     }
 }
