@@ -1,19 +1,19 @@
 <servlet>
-    <servlet-name>addToCart</servlet-name>
-    <servlet-class>com.ecommerce.AddToCartServlet</servlet-class>
+    <servlet-name>checkout</servlet-name>
+    <servlet-class>com.ecommerce.CheckoutServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
-    <servlet-name>addToCart</servlet-name>
-    <url-pattern>/add-to-cart</url-pattern>
+    <servlet-name>checkout</servlet-name>
+    <url-pattern>/checkout</url-pattern>
 </servlet-mapping>
 
 <servlet>
-    <servlet-name>cart</servlet-name>
-    <servlet-class>com.ecommerce.CartServlet</servlet-class>
+    <servlet-name>paymentSuccess</servlet-name>
+    <servlet-class>com.ecommerce.PaymentSuccessServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
-    <servlet-name>cart</servlet-name>
-    <url-pattern>/cart</url-pattern>
+    <servlet-name>paymentSuccess</servlet-name>
+    <url-pattern>/payment-success</url-pattern>
 </servlet-mapping>
