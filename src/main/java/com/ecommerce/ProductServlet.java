@@ -23,7 +23,10 @@ public class ProductServlet extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     response.setCharacterEncoding("UTF-8");
     PrintWriter out = response.getWriter();
+HttpSession session = request.getSession();
+List<Product> cart = (List<Product>) session.getAttribute("cart");
 
+int count = (cart == null) ? 0 : cart.size();
     out.println("<html><head>");
 out.println("<link rel='stylesheet' href='style.css'>");
 out.println("</head><body>");
@@ -35,7 +38,6 @@ out.println("<h2>🛒 My Store</h2>");
 out.println("<div>");
 out.println("<a href='products'>Products</a>");
 out.println("<a href='cart'>Cart</a>");
-out.println("<a href='cart'>Cart (" + count + ")</a>");
 out.println("</div>");
 out.println("</div>");
 
