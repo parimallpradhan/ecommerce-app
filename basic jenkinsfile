@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+ environment{
+    dockerhub_cred = credentials('docker-cred')
+ 
+       }
+    stages {
+        stage('Git checkout ') {
+            steps {
+                git branch: 'main', url: 'https://github.com/parimallpradhan/ecommerce-app.git'
+            }
+        }
+        stage('Build package ') {
+            steps {
+               sh 'mvn clean package'
+            }
+        }
+        stage('build image ') {
+            steps {
+               sh 'docker build -t myapp:v1 .'
+            }
+        }
+        stage('image tag') {
+            steps {
+               sh 'docker tag myapp:v1 parimal1984/eommerceproject '
+            }
+        }
+         stage('docker login') {
+            steps {
+              sh "echo $dockerhub_cred_PSW | docker login -u $dockerhub_cred_USR --password-stdin"
+            }
+        }
+        stage('docker push') {
+            steps {
+              sh "docker push parimal1984/eommerceproject"
+            }
+        }
+       stage('docker deployment') {
+            steps {
+              sh "docker run -itd --name ecommapp -p 8082:8080 parimal1984/eommerceproject "
+            }
+        } 
+         
+    }
+}
