@@ -1,4 +1,4 @@
-package com.parimal.ecommerce;
+package com.ecommerce;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
