@@ -1,40 +1,64 @@
-<%@ pge contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>My Store</title>
-
-<style>
-body {
-    font-family: Arial;
-    text-align: center;
-    background: #f4f4f4;
-}
-
-.container {
-    margin-top: 100px;
-}
-
-a {
-    display: inline-block;
-    padding: 15px 25px;
-    margin: 10px;
-    background: orange;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<a href="login.jsp">Login</a>
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>🛒 My Store</h2>
+    <div>
+        <a href="products">Products</a>
+        <a href="cart">Cart</a>
+    </div>
+</div>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    
+    <div class="hero-left">
+        <img src="https://m.media-amazon.com/images/I/61bK6PMOC3L._SL1500_.jpg" alt="phone">
+    </div>
+
+    <div class="hero-right">
+        <h1>iPhone Sale 🔥</h1>
+        <p>Get the latest iPhone at the best price</p>
+        <h2>₹79,999</h2>
+        <a class="btn" href="products">Shop Now</a>
+    </div>
+
+</div>
 
 <div class="container">
-    <h1>🛒 Welcome to My Store</h1>
 
-    <a href="products">View Products</a>
-    <a href="cart">View Cart</a>
+    <h2 class="section-title">Shop by Category</h2>
+
+    <div class="categories">
+        ...
+    </div>
+
+</div>
+<!-- CATEGORIES -->
+<div class="categories">
+
+    <div class="cat-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/15/15874.png">
+        <h3>Mobiles</h3>
+    </div>
+
+    <div class="cat-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1041/1041883.png">
+        <h3>Laptops</h3>
+    </div>
+
+    <div class="cat-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png">
+        <h3>Accessories</h3>
+    </div>
 </div>
 
 </body>

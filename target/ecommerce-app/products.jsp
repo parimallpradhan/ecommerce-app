@@ -1,79 +1,43 @@
+<%@ page import="java.util.*" %>
 <html>
 <head>
-<meta charset="UTF-8">
-
-<style>
-body {
-    font-family: Arial;
-    background: #f4f4f4;
-}
-
-h1 {
-    text-align: center;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    width: 220px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-img {
-    width: 180px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.price {
-    color: green;
-    font-weight: bold;
-}
-
-button {
-    background: orange;
-    border: none;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🛒 Product List</h1>
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>🛒 My Store</h2>
+    <div>
+        <a href="index.jsp">Home</a>
+        <a href="cart">Cart</a>
+    </div>
+</div>
 
-<div class="container">
+<!-- PRODUCTS GRID -->
+<div class="products-container">
 
-    <div class="card">
-        <img src="images/iphone.jpg">
+    <div class="product-card">
+        <img src="images/iphone.png" alt="iPhone">
         <h3>iPhone</h3>
-        <p class="price">₹70,000</p>
-        <button>Add to Cart</button>
+        <p class="price">₹80000.0</p>
+
+        <form action="add-to-cart" method="post">
+            <input type="hidden" name="product" value="iPhone">
+            <button>Add to Cart</button>
+        </form>
     </div>
 
-    <div class="card">
-        <img src="images/laptop.jpg">
+    <div class="product-card">
+        <img src="images/laptop.png" alt="Laptop">
         <h3>Laptop</h3>
-        <p class="price">₹50,000</p>
-        <button>Add to Cart</button>
+        <p class="price">₹60000.0</p>
+
+        <form action="add-to-cart" method="post">
+            <input type="hidden" name="product" value="Laptop">
+            <button>Add to Cart</button>
+        </form>
     </div>
 
 </div>

@@ -1,35 +1,5 @@
-<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee 
-         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
-         version="6.0">
-
-    <servlet>
-        <servlet-name>product</servlet-name>
-        <servlet-class>com.ecommerce.ProductServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>product</servlet-name>
-        <url-pattern>/products</url-pattern>
-    </servlet-mapping>
-<servlet>
-    <servlet-name>checkout</servlet-name>
-    <servlet-class>com.ecommerce.CheckoutServlet</servlet-class>
-</servlet>
-
-<servlet-mapping>
-    <servlet-name>checkout</servlet-name>
-    <url-pattern>/checkout</url-pattern>
-</servlet-mapping>
-
-<servlet>
-    <servlet-name>paymentSuccess</servlet-name>
-    <servlet-class>com.ecommerce.PaymentSuccessServlet</servlet-class>
-</servlet>
-
-<servlet-mapping>
-    <servlet-name>paymentSuccess</servlet-name>
-    <url-pattern>/payment-success</url-pattern>
-</servlet-mapping>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="3.1">
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

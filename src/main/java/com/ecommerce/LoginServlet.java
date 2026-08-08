@@ -1,4 +1,4 @@
-package com.yourpackage;  // 👈 IMPORTANT: match your existing package
+package com.ecommerce; // 👈 IMPORTANT: match your existing package
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
