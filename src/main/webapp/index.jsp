@@ -7,7 +7,7 @@
 </head>
 
 <body>
-
+<a href="login.jsp">Login</a>
 <!-- NAVBAR -->
 <div class="navbar">
     <h2>🛒 My Store</h2>
