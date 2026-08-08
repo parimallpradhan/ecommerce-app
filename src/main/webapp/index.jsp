@@ -7,13 +7,15 @@
 </head>
 
 <body>
-<a href="login.jsp">Login</a>
+
 <!-- NAVBAR -->
 <div class="navbar">
     <h2>🛒 My Store</h2>
     <div>
         <a href="products">Products</a>
         <a href="cart">Cart</a>
+<a href="login.jsp">Login</a>
+<a href="logout">Logout</a>
     </div>
 </div>
 
