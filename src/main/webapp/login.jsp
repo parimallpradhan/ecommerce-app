@@ -1,4 +1,3 @@
-
 <form action="<%= request.getContextPath() %>/login" method="post">
   <h2>Login</h2>
   Username: <input type="text" name="username"><br>
