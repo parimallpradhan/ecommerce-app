@@ -1,3 +1,10 @@
+<%
+    String user = (String) session.getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -7,13 +14,15 @@
 </head>
 
 <body>
-<a href="login.jsp">Login</a>
+
 <!-- NAVBAR -->
 <div class="navbar">
     <h2>🛒 My Store</h2>
     <div>
         <a href="products">Products</a>
         <a href="cart">Cart</a>
+<a href="login.jsp">Login</a>
+<a href="logout">Logout</a>
     </div>
 </div>
 

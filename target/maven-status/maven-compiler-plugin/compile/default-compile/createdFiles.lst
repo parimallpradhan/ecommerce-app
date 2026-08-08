@@ -2,7 +2,10 @@ com/ecommerce/Product.class
 com/ecommerce/CheckoutServlet.class
 com/ecommerce/RemoveFromCartServlet.class
 com/ecommerce/LoginServlet.class
+com/ecommerce/RegisterServlet.class
 com/ecommerce/ProductServlet.class
+com/ecommerce/LogoutServlet.class
+com/ecommerce/DBConnection.class
 com/ecommerce/CartServlet.class
 com/ecommerce/PaymentSuccessServlet.class
 com/ecommerce/AddToCartServlet.class
