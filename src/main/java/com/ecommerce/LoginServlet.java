@@ -1,25 +1,26 @@
-package com.ecommerce; // 👈 IMPORTANT: match your existing package
+package com.ecommerce;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 
-@WebServlet("/login")
+
 public class LoginServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse res)
-            throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        String user = req.getParameter("username");
-        String pass = req.getParameter("password");
+        String user = request.getParameter("username");
+        String pass = request.getParameter("password");
 
-        // Fake login (no DB)
         if ("admin".equals(user) && "admin123".equals(pass)) {
-            req.getSession().setAttribute("user", user);
-            res.sendRedirect("index.jsp"); // or home page
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+
+            response.sendRedirect("index.jsp");
         } else {
-            res.getWriter().println("Invalid login ❌");
+            response.getWriter().println("Invalid login ❌");
         }
     }
 }
