@@ -1,3 +1,10 @@
+<%
+    String user = (String) session.getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
