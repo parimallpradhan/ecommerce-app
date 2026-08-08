@@ -6,6 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import java.io.*;
 import java.util.*;
 import javax.servlet.annotation.*;
+import java.io.IOException;
+import javax.servlet.ServletException;
+
+
+
 
 @WebServlet("/products")
 public class ProductServlet extends HttpServlet {
