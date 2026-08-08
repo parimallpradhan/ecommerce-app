@@ -1,0 +1,57 @@
+pipeline {
+    agent any
+
+ environment{
+        dockerhub_cred = credentials('docker-cred')
+    }
+    stages {
+
+        stage('Clone Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/parimallpradhan/ecommerce-app.git'
+            }
+        }
+
+        stage('Build WAR') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t myapp:v1 ."
+                sh "docker tag myapp:v1 parimal1984/eommerceproject"
+                
+            }
+        }
+        stage('dockerhub login'){
+            steps{
+                sh "echo $dockerhub_cred_PSW | docker login -u $dockerhub_cred_USR --password-stdin"
+              
+            }
+        }
+       stage('dockerhub push'){
+            steps{
+                
+               sh "docker push parimal1984/eommerceproject"
+            }
+        }
+    stage('Docker run'){
+            steps{
+                sh "docker run -d -p 80:8080 --name ecommerce-aoo parimal1984/eommerceproject"
+            }
+        }
+    }
+    post {
+        always {
+            echo "job is completed"
+        }
+        success {
+            echo "It is a success"
+        }
+        failure {
+            echo "It has failed"
+         }
+    }
+}
