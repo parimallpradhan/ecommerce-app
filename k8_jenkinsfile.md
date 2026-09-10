@@ -46,6 +46,8 @@ pipeline {
          kubectl apply -f app.yaml
 
         '''
+        }
+        
 
             }
         } 
