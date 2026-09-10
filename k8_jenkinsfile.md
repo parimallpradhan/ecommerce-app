@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
  environment{
     dockerhub_cred = credentials('docker-cred')
  
@@ -35,7 +36,7 @@ pipeline {
               sh "docker push parimal1984/eommerceproject"
             }
         }
-       stage('K8 deployment') {
+       stage('docker deployment') {
             steps {
                sh '''
             aws eks update-kubeconfig \
