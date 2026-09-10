@@ -20,7 +20,7 @@ spec:
       containers:
         - name: myapp
 
-          image: parimal1984/eommerceproject:4
+          image: parimal1984/eommerceproject:latest
 
           ports:
             - containerPort: 8080
