@@ -36,20 +36,18 @@ pipeline {
               sh "docker push parimal1984/eommerceproject"
             }
         }
-       stage('docker deployment') {
+       stage('K8 deployment') {
             steps {
-             sh '''
+               sh '''
             aws eks update-kubeconfig \
-              --region ap-south-1 \
+              --region us-east-1 \
               --name Prod-cluster
 
-         kubectl apply -f app.yaml
+           kubectl apply -f app.yaml
 
-        '''
-        }
         
+        '''
 
-            }
             }
         } 
          
