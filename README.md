@@ -278,7 +278,7 @@ echo "Build completed successfully"
 Add another **Execute shell** step:
 
 ```bash
-set -e
+
 
 echo "Running automated tests..."
 mvn test
