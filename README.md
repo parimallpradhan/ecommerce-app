@@ -3,7 +3,8 @@
 
 ## Jenkins Freestyle Project: Build, Test, and Deploy a Java Web App to Tomcat
 
-![Java E-Commerce CI/CD Pipeline](https://github.com/user-attachments/assets/06f91942-679d-45a4-82eb-24484a0f5a85)
+<img width="1655" height="950" alt="Java E-Commerce CI_CD Pipeline" src="https://github.com/user-attachments/assets/a5aa5fe4-8abe-4053-a52d-09d539b6ffdd" />
+
 
 A hands-on CI/CD project that uses a **Jenkins Freestyle job** to pull a Java web application from GitHub, build and test it with Maven, package it as a WAR file, and deploy it automatically to an **Apache Tomcat** server using the **Publish Over SSH** plugin.
 
@@ -44,8 +45,8 @@ Jenkins retrieves the source code from GitHub, compiles it with Maven, runs auto
 
 ## 2. Architecture
 
-<img width="1224" height="1285" alt="DevOps CI_CD Deployment Pipeline" src="https://github.com/user-attachments/assets/f709884f-d608-4ac7-b599-34cfce69c023" />
 
+<img width="1224" height="1285" alt="DevOps CI_CD Deployment Pipeline" src="https://github.com/user-attachments/assets/1b0e73ce-e5f1-47f8-b4fb-ce26f751f602" />
 
 
 
@@ -84,17 +85,19 @@ Create two Ubuntu EC2 instances: one for Jenkins and one for Tomcat.
 
 **1. Launch an EC2 instance**
 
-<img width="1871" height="743" alt="Launch EC2 instance" src="https://github.com/user-attachments/assets/1e24e090-ef39-4a7a-92ce-4a393345b9c4" />
+<img width="1871" height="743" alt="Screenshot 2026-10-29 211649" src="https://github.com/user-attachments/assets/096fbd21-1941-44e7-bf43-47904e1934fc" />
+
 
 **2. Select the instance type**
 
-<img width="1178" height="345" alt="Select instance type" src="https://github.com/user-attachments/assets/4473c7a1-29df-426d-92fa-54a6f50ed249" />
+<img width="1178" height="345" alt="Screenshot 2026-10-29 211852" src="https://github.com/user-attachments/assets/7d1da2c5-a6fc-4341-8692-d413fbb8d656" />
+
 
 **3. Open port 8080 (Jenkins and Tomcat) in the security group**
 
 Also keep port 22 open for SSH.
 
-<img width="1873" height="682" alt="Open port 8080" src="https://github.com/user-attachments/assets/49e0223a-28fc-42fc-ae81-5247ade06b36" />
+<img width="1873" height="682" alt="Screenshot 2026-10-29 212022" src="https://github.com/user-attachments/assets/daecb357-ffb6-4547-a58b-4ffe33f5aa7d" />
 
 ---
 
@@ -108,7 +111,8 @@ SSH into the **Jenkins** EC2 instance.
 sudo apt update -y
 ```
 
-<img width="1896" height="236" alt="apt update" src="https://github.com/user-attachments/assets/d0e42768-1989-4603-ba64-561627d15fb3" />
+<img width="1896" height="236" alt="Screenshot 2026-10-29 213913" src="https://github.com/user-attachments/assets/2ad4d003-eddc-4fd9-b3b1-b3bb8cdea054" />
+
 
 ### 2.2 Install Java
 
@@ -116,8 +120,8 @@ sudo apt update -y
 sudo apt install fontconfig openjdk-21-jre -y
 java -version
 ```
+<img width="1917" height="256" alt="Screenshot 2026-10-29 214300" src="https://github.com/user-attachments/assets/c1d87ee1-681f-416b-a32e-44a62c714d7e" />
 
-<img width="1917" height="256" alt="Java version" src="https://github.com/user-attachments/assets/7128211a-1d09-473e-878a-7eeb9425ec50" />
 
 ### 2.3 Install Jenkins
 
@@ -133,7 +137,8 @@ sudo apt install jenkins -y
 jenkins --version
 ```
 
-<img width="1861" height="337" alt="Jenkins version" src="https://github.com/user-attachments/assets/15a2f673-0132-4ae8-b502-eb7a3064a327" />
+<img width="1861" height="337" alt="Screenshot 2026-10-29 214348" src="https://github.com/user-attachments/assets/7adef208-1372-4697-ad95-79dddb880a7a" />
+
 
 Start Jenkins and get the initial admin password:
 
@@ -151,7 +156,8 @@ sudo apt install maven -y
 mvn --version
 ```
 
-<img width="1892" height="352" alt="Maven version" src="https://github.com/user-attachments/assets/162d2d3b-107d-4033-bc6b-af336ab61255" />
+<img width="1892" height="352" alt="Screenshot 2026-10-29 214538" src="https://github.com/user-attachments/assets/51880a19-e391-4a4d-a2a9-3bb24df12e50" />
+
 
 ---
 
@@ -171,9 +177,11 @@ java -version
 
 Go to the Apache Tomcat download page and copy the link address of the **tar.gz** file.
 
-<img width="1580" height="402" alt="Tomcat download page" src="https://github.com/user-attachments/assets/96aae47e-68b1-4812-ac50-4c0d738cd4ef" />
+<img width="1580" height="402" alt="Screenshot 2026-10-29 214931" src="https://github.com/user-attachments/assets/d0128d0e-5f95-4d03-9cea-c565c2af9882" />
 
-<img width="1611" height="145" alt="Copy tar.gz link" src="https://github.com/user-attachments/assets/0e7e5f1f-35c5-4387-8825-3cbfec4d1ec1" />
+<img width="1611" height="145" alt="Screenshot 2026-10-29 215005" src="https://github.com/user-attachments/assets/635969a8-0411-405d-8e68-b16daabd14b8" />
+
+
 
 ```bash
 wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.123/bin/apache-tomcat-9.0.123.tar.gz
@@ -181,7 +189,8 @@ wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.123/bin/apache-tomcat-9.0.123
 
 > Tomcat versions change over time. If this link is no longer available, use the current link from the download page.
 
-<img width="1876" height="268" alt="wget Tomcat" src="https://github.com/user-attachments/assets/aab70a78-73ee-4ea5-8dc3-7924269ecfb4" />
+<img width="1876" height="268" alt="Screenshot 2026-10-29 215202" src="https://github.com/user-attachments/assets/eac31c28-83af-4083-9b2e-2f07856bba2a" />
+
 
 ### 3.3 Extract the archive
 
@@ -189,7 +198,8 @@ wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.123/bin/apache-tomcat-9.0.123
 tar -xvzf apache-tomcat-9.0.123.tar.gz
 ```
 
-<img width="1887" height="187" alt="Extract Tomcat" src="https://github.com/user-attachments/assets/e15d8f0c-f305-4a5f-824b-3a46a006aaa7" />
+<img width="1887" height="187" alt="Screenshot 2026-10-29 215420" src="https://github.com/user-attachments/assets/d8e16b95-5845-4b99-bc9b-b6262ff0cda9" />
+
 
 ### 3.4 Start Tomcat
 
@@ -198,13 +208,15 @@ cd apache-tomcat-9.0.123/bin
 ./catalina.sh start
 ```
 
-<img width="1882" height="443" alt="Start Tomcat" src="https://github.com/user-attachments/assets/36005d11-b1d7-4c39-bd7b-15f28e273af8" />
+<img width="1882" height="443" alt="Screenshot 2026-10-29 215916" src="https://github.com/user-attachments/assets/250f2abf-08f5-4f39-b00d-b7fe065a6e0f" />
+
 
 ### 3.5 Verify Tomcat in the browser
 
 Open `http://TOMCAT_PUBLIC_IP:8080` and confirm the Tomcat welcome page appears.
 
-<img width="1732" height="642" alt="Tomcat welcome page" src="https://github.com/user-attachments/assets/84413143-b2d9-4382-aeb5-e54a1d01655a" />
+<img width="1732" height="642" alt="Screenshot 2026-10-29 220051" src="https://github.com/user-attachments/assets/a3793c47-d2cf-4997-9b2e-ff6131bb545b" />
+
 
 ---
 
@@ -215,13 +227,15 @@ Open `http://TOMCAT_PUBLIC_IP:8080` and confirm the Tomcat welcome page appears.
 1. Open the Jenkins dashboard.
 2. Click **New Item**.
 
-   <img width="1662" height="490" alt="New Item" src="https://github.com/user-attachments/assets/dce73bc5-2615-4b1d-b712-9cb10b34be4d" />
+<img width="1662" height="490" alt="Screenshot 2026-10-29 220651" src="https://github.com/user-attachments/assets/01cb9815-1cd6-458a-a9f0-912be9530c2f" />
+
 
 3. Enter the job name: `Java-Build-Test-Deploy`.
 4. Select **Freestyle project**.
 5. Click **OK**.
 
-<img width="1875" height="565" alt="Freestyle project" src="https://github.com/user-attachments/assets/5ab54b62-1cb1-4ea7-b85b-e86dec840373" />
+<img width="1875" height="565" alt="Screenshot 2026-10-29 220757" src="https://github.com/user-attachments/assets/0f960dc4-032c-4783-878b-f68be29725ec" />
+
 
 ### 4.2 Configure Source Code Management
 
@@ -232,9 +246,9 @@ Under **Source Code Management**:
 3. Set the branch, for example `*/main`.
 4. Add credentials if the repository is private.
 
-<img width="1838" height="542" alt="SCM Git" src="https://github.com/user-attachments/assets/2287e276-1a1d-43db-be63-e6053156731b" />
+<img width="1838" height="542" alt="Screenshot 2026-10-29 220937" src="https://github.com/user-attachments/assets/ba202a88-6efe-43e6-8c76-0a9eb1cb4ea9" />
 
-<img width="1802" height="382" alt="Git branch" src="https://github.com/user-attachments/assets/ed7b39bd-5155-4582-803a-aff21396bedc" />
+<img width="1802" height="382" alt="Screenshot 2026-10-29 221009" src="https://github.com/user-attachments/assets/260d6190-b160-4282-8af5-0116bc646753" />
 
 Example repository URL:
 
@@ -252,10 +266,11 @@ Add **two separate Execute shell build steps**. Separating them makes it easy to
 
 Under **Build Steps** → **Add build step** → **Execute shell**:
 
-<img width="1861" height="472" alt="Add build step" src="https://github.com/user-attachments/assets/859b6472-6c8c-48bb-bac9-285225ae7f0c" />
+<img width="1861" height="472" alt="Screenshot 2026-10-29 221056" src="https://github.com/user-attachments/assets/b9ee2b7a-bc65-43b2-affe-dec76ad9dc82" />
+
 
 ```bash
-set -e
+
 
 echo "Starting Maven build..."
 mvn clean compile
@@ -263,7 +278,8 @@ mvn clean compile
 echo "Build completed successfully"
 ```
 
-<img width="1330" height="448" alt="Build step script" src="https://github.com/user-attachments/assets/b9039f3c-1bce-45ca-b591-d7b26b4a2d15" />
+<img width="1330" height="448" alt="Screenshot 2026-10-29 221217" src="https://github.com/user-attachments/assets/3fdd18db-f677-4011-9fb3-b5a079709a7c" />
+
 
 **What happens?**
 
@@ -271,7 +287,7 @@ echo "Build completed successfully"
 - Java source files are compiled.
 - If compilation fails, the step fails and Jenkins stops the job.
 
-<img width="1308" height="438" alt="Build step result" src="https://github.com/user-attachments/assets/849a09b7-13b7-4251-8fd3-7f884ca73e35" />
+
 
 ### 5.2 Run tests and package the WAR
 
@@ -290,7 +306,8 @@ echo "Checking generated WAR..."
 ls -lh target/*.war
 ```
 
-<img width="1860" height="703" alt="Test and package step" src="https://github.com/user-attachments/assets/e9923fbf-c2e8-4969-833b-37e1e350e62b" />
+<img width="1308" height="438" alt="Screenshot 2026-10-29 221627" src="https://github.com/user-attachments/assets/2f2d3de2-6a15-4d9b-b1a8-468ae48f3473" />
+
 
 **What happens?**
 
@@ -314,9 +331,11 @@ target/ecommerce-app.war
 
 Go to **Jenkins Dashboard → Manage Jenkins → Plugins → Available plugins**, search for **Publish Over SSH**, and install it.
 
-<img width="1895" height="482" alt="Plugins page" src="https://github.com/user-attachments/assets/7f861ccc-38e1-4600-96c3-eda5fdb6daf7" />
+<img width="1860" height="703" alt="Screenshot 2026-10-29 221932" src="https://github.com/user-attachments/assets/a2962245-9f33-4d16-a9e5-4e63ade73eff" />
 
-<img width="1897" height="481" alt="Install Publish Over SSH" src="https://github.com/user-attachments/assets/3a13de4b-015a-4551-a49e-195bfb115bc2" />
+<img width="1895" height="482" alt="Screenshot 2026-10-29 221953" src="https://github.com/user-attachments/assets/0aa201d0-55b6-49d0-b10e-0db0db9d6e53" />
+
+<img width="1897" height="481" alt="Screenshot 2026-10-29 222033" src="https://github.com/user-attachments/assets/ea661435-f84e-41d1-afb7-33e31f6349ea" />
 
 Restart Jenkins when the installation is complete and no jobs are running.
 
@@ -324,7 +343,8 @@ Restart Jenkins when the installation is complete and no jobs are running.
 
 Go to **Manage Jenkins → System → Publish over SSH**.
 
-<img width="1817" height="758" alt="Publish over SSH settings" src="https://github.com/user-attachments/assets/12f2eae8-a345-4d52-8c79-08f3e9cb4dd1" />
+<img width="1817" height="758" alt="Screenshot 2026-10-29 222406" src="https://github.com/user-attachments/assets/11552e8c-6ec8-44c7-ba6a-19f8ca427bd0" />
+
 
 Click **SSH Servers → Add** and fill in:
 
@@ -335,19 +355,23 @@ Click **SSH Servers → Add** and fill in:
 | Username | `ubuntu` |
 | Remote Directory | Path to Tomcat's `webapps` folder |
 
-<img width="1797" height="780" alt="Add SSH server" src="https://github.com/user-attachments/assets/8bc274c7-be0f-48f0-857c-1017b395da1b" />
+<img width="1797" height="780" alt="Screenshot 2026-10-29 222604" src="https://github.com/user-attachments/assets/cacf3e83-da3d-4ea6-bc85-dd6f711d7016" />
+
 
 Get the `webapps` path on the Tomcat server (run `pwd` inside the `webapps` folder) and paste it as the Remote Directory:
 
-<img width="1917" height="321" alt="webapps path" src="https://github.com/user-attachments/assets/a1145b9c-d9f3-4e2c-a00d-9384bc4a6f56" />
+<img width="1917" height="321" alt="Screenshot 2026-10-29 222618" src="https://github.com/user-attachments/assets/402caa16-0de7-4665-afc3-90a94729595c" />
+
 
 Click **Advanced**, tick **Use password authentication, or use a different key**, and paste the contents of the Tomcat server's `.pem` private key:
 
-<img width="1805" height="780" alt="Advanced key" src="https://github.com/user-attachments/assets/b8c4be84-253a-4e95-a463-ed233a30bede" />
+<img width="1805" height="780" alt="Screenshot 2026-10-29 222912" src="https://github.com/user-attachments/assets/6be77c35-f0a1-4ff3-bca6-fb0a07ecf36f" />
+
 
 Click **Test Configuration**. You should see `Success`.
 
-<img width="1782" height="541" alt="Test configuration" src="https://github.com/user-attachments/assets/36f851ee-97ac-4b79-be5d-12a95e1a0796" />
+<img width="1782" height="541" alt="Screenshot 2026-10-29 222934" src="https://github.com/user-attachments/assets/cc953208-4762-42f4-80e8-ce2b9a0dbc61" />
+
 
 ---
 
@@ -355,7 +379,8 @@ Click **Test Configuration**. You should see `Success`.
 
 Open the job `Java-Build-Test-Deploy` → **Configure** → **Post-build Actions** → **Send build artifacts over SSH**.
 
-<img width="1762" height="762" alt="Post-build action" src="https://github.com/user-attachments/assets/0c1c025c-9a35-4149-8bba-340e8f7caeec" />
+<img width="1762" height="762" alt="Screenshot 2026-10-29 223146" src="https://github.com/user-attachments/assets/7650041e-5c57-4e21-983b-ad2721132ceb" />
+
 
 Configure:
 
@@ -366,7 +391,8 @@ Configure:
 | Remove prefix | `target` |
 | Remote directory | *(leave empty to use the server's Remote Directory)* |
 
-<img width="1912" height="743" alt="Send artifacts config" src="https://github.com/user-attachments/assets/c164ccb8-4fe6-4a07-90d8-07a14a9f2bdc" />
+<img width="1912" height="743" alt="Screenshot 2026-10-29 223303" src="https://github.com/user-attachments/assets/f2c9bc0b-965e-4d8f-a3e2-9f0a846d42b8" />
+
 
 Click **Save**.
 
@@ -386,7 +412,7 @@ On the Tomcat server:
 ls -lh apache-tomcat-9.0.123/webapps/
 ```
 
-<img width="1861" height="148" alt="webapps listing" src="https://github.com/user-attachments/assets/782a814a-033e-461b-b7de-eee84ee02c57" />
+<img width="1861" height="148" alt="Screenshot 2026-10-29 223400" src="https://github.com/user-attachments/assets/61374151-b52a-4d05-8dfe-6c1c4291d33b" />
 
 You should see:
 
@@ -410,7 +436,8 @@ tail -n 100 apache-tomcat-9.0.123/logs/catalina.out
 http://TOMCAT_PUBLIC_IP:8080/ecommerce-app/
 ```
 
-<img width="1907" height="826" alt="Deployed application" src="https://github.com/user-attachments/assets/d75d5d95-ef43-4704-9a72-119c7b3e28cb" />
+<img width="1890" height="813" alt="Screenshot 2026-10-29 224422" src="https://github.com/user-attachments/assets/51906687-cffa-4c3d-b99e-79b1461bb9fa" />
+
 
 Replace `TOMCAT_PUBLIC_IP` with your Tomcat server's public IP. Make sure the Tomcat security group allows inbound traffic on port `8080`.
 
