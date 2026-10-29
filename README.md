@@ -3,6 +3,9 @@
 
 <img width="1907" height="826" alt="Screenshot 2026-10-29 224440" src="https://github.com/user-attachments/assets/fe28a62d-a93e-48b8-a23c-5b240e5aa973" />
 
+
+# Project flow:
+
 <img width="1655" height="950" alt="Java E-Commerce CI_CD Pipeline" src="https://github.com/user-attachments/assets/a5aa5fe4-8abe-4053-a52d-09d539b6ffdd" />
 
 
